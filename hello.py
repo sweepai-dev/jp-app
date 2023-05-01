@@ -1,3 +1,5 @@
+from openai_integration import generate_jp_phrases
+
 def matrix_mult(a, b):
     result = [[0, 0], [0, 0]]
     for i in range(2):
@@ -32,3 +34,10 @@ print('DevLuke')
 
 for i in range(10):
     print(fibonacci(i))
+
+# Generate and print 10 JP learning phrases
+api_key = "your_openai_api_key"
+jp_phrases = generate_jp_phrases(api_key)
+print("Generated JP learning phrases:")
+for phrase in jp_phrases:
+    print(phrase)

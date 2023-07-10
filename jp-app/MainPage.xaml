@@ -35,8 +35,12 @@
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
+            <Button
+                Text="Flashcards"
+                Clicked="OnFlashcardsClicked"
+                HorizontalOptions="Center" />
+
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
-

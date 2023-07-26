@@ -1,12 +1,28 @@
-﻿namespace jp_app;
+using System.Globalization;
+using jp_app.Services;
+using Microsoft.Maui.Controls;
 
-public partial class App : Application
+namespace jp_app
 {
-	public App()
-	{
-		InitializeComponent();
+    public partial class App : Application
+    {
+        private readonly ISystemLanguageService _systemLanguageService;
 
-		MainPage = new AppShell();
-	}
+        public App(ISystemLanguageService systemLanguageService)
+        {
+            _systemLanguageService = systemLanguageService;
+
+            InitializeComponent();
+
+            MainPage = new AppShell();
+        }
+
+        protected override void OnStart()
+        {
+            var systemLanguage = _systemLanguageService.GetSystemLanguage();
+            CultureInfo.CurrentCulture = new CultureInfo(systemLanguage);
+
+            base.OnStart();
+        }
+    }
 }
-
